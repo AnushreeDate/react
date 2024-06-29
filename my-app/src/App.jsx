@@ -1,74 +1,104 @@
-import React ,{useState} from 'react'
-// import 'bootstrap/dist/css/bootstrap.min.css';
-// import 'bootstrap/dist/js/bootstrap.bundle.min';
+import React, { useState } from 'react'
 
-import "../node_modules/bootstrap/dist/css/bootstrap.min.css"
+import "../node_modules/bootstrap/dist/css/bootstrap.css"
 import "../node_modules/bootstrap/dist/js/bootstrap.bundle.min.js"
 
 
-import Header from '../src/components/include/header.jsx'
-import Footer from '../src/components/include/footer.jsx'
+// importing components
+import Header from './components/include/header.jsx'
+import Footer from './components/include/footer.jsx'
 
-import AddEmoji from '../src/components/sections/AddEmoji.jsx'
-import EmojiGrid from '../src/components/sections/EmojiGrid.jsx'
+import EmojiGrid from './components/sections/EmojiGrid.jsx'
 
-
+import AddEmoji from './components/sections/AddEmoji.jsx'
 const App = () => {
 
-  let [emojies, setEmojies] = useState([
-      {
-          id: 1,
-          icon: "🔥",
-          name: "Fire Emoji",
-          discription: "some discription data !"
-      },
-      {
-          id: 2,
-          icon: "👌",
-          name: "Best",
-          discription: "some discription data best !"
-      },
-      {
-          id: 3,
-          icon: "👋",
-          name: "Hii",
-          discription: "some discription data hii !"
-      },
-      {
-          id: 4,
-          icon: "✌️",
-          name: "Victory",
-          discription: "some discription data Victory !"
-      }
-  ])
+    let [emojies, setEmojies] = useState([
+        {
+            id: 1,
+            icon: "🔥",
+            name: "Fire Emoji",
+            discription: " something is cool, awesome, exciting, or more colloquially, “on fire.”"
+        },
+        {
+            id: 2,
+            icon: "👌",
+            name: "Best",
+            discription: "simple agreement, understanding, or satisfaction !"
+        },
+        {
+            id: 3,
+            icon: "👋",
+            name: "Hii",
+            discription: "the 👋 emoji mimics the gesture of a hand waving hello."
+        },
+        {
+            id: 4,
+            icon: "✌️",
+            name: "Victory",
+            discription: "peace sign or victory hand gesture."
+        },
+        {
+            id: 5,
+            icon: "🔥",
+            name: "Fire Emoji",
+            discription: " something is cool, awesome, exciting, or more colloquially, “on fire.”"
+        },
+        {
+            id: 6,
+            icon: "👌",
+            name: "Best",
+            discription: "simple agreement, understanding, or satisfaction !"
+        },
+        {
+            id:7, 
+            icon: "👋",
+            name: "Hii",
+            discription: "the 👋 emoji mimics the gesture of a hand waving hello."
+        },
+        {
+            id:8,
+            icon: "🔥",
+            name: "Fire Emoji",
+            discription: " something is cool, awesome, exciting, or more colloquially, “on fire.”"
+        },
+        {
+            id: 9,
+            icon: "👌",
+            name: "Best",
+            discription: "simple agreement, understanding, or satisfaction !"
+        }
+    ])
 
 
-  let callFromAdd = (emoji) => {
-      // alert("called from Add Emojies")
-      console.log("this is app.jsx and emoji is : ")
+    let callFromAdd = (emoji) => {
+        // alert("called from Add Emojies")
+        console.log("this is app.jsx and emoji is : ")
 
-      console.log(emoji)
+        emoji.id = emojies[emojies.length - 1].id + 1
 
-      setEmojies((prev) => {
-          return (
-              [...prev, emoji]
-          )
-      })
-  }
+        console.log(emoji)
 
-  return (
-      <>
-          <Header />
+        setEmojies((prev) => {
+            return (
+                [...prev, emoji]
+            )
+        })
+    }
 
-          <AddEmoji call={callFromAdd} />
+    return (
+        <>
+            <Header />
 
-          {/* display all emojies */}
+            <AddEmoji call={callFromAdd} />
 
-          <EmojiGrid data={emojies} />
+            {/* display all emojies */}
 
-          <Footer />
-      </>
-  )
+            <EmojiGrid data={emojies} />
+
+            <Footer />
+        </>
+    )
 }
 
 export default App
